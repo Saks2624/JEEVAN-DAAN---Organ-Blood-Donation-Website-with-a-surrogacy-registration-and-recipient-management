@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surrogacy - Jeevandaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: #fff8f0;
+      color: #333;
+    }
+    .video-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+    header.main-header {
+      background: linear-gradient(to right, #c28294, #8b1a1a);
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    nav.main-nav {
+      background: #8b1a1a;
+      padding: .7rem;
+      text-align: center;
+    }
+    nav.main-nav a {
+      color: #ffe9e9;
+      margin: 0 1rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    nav.main-nav a:hover { color: #ffd700; }
+
+    .content-section {
+      padding: 2rem;
+      text-align: center;
+      color: rgb(83, 9, 9);
+    }
+    .content-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: .5rem;
+    }
+    .content-section p {
+      max-width: 900px;
+      margin: auto;
+      background: rgba(248, 219, 219, 0.5);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .slider-and-graphic {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 1rem 2rem 0;
+      gap: 1rem;
+    }
+
+    .slider {
+      flex: 1 1 60%;
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0;
+    }
+    .slide {
+      flex: 0 0 280px;
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      scroll-snap-align: start;
+      font-size: 0.95rem;
+    }
+
+    .story-graphic {
+      flex: 1 1 35%;
+      text-align: center;
+    }
+    .story-graphic img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+    }
+    .story-graphic .caption {
+      color: #fff;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .slider-and-graphic {
+        flex-direction: column;
+        align-items: center;
+      }
+      .story-graphic {
+        display: none;
+      }
+      .faq-form-wrapper {
+        flex-direction: column;
+      }
+    }
+
+    .faq-form-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .faq {
+      flex: 1 1 48%;
+    }
+    .faq h2 {
+      color: #8b1a1a;
+      margin-bottom: 1rem;
+    }
+    .faq-item {
+      background: white;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .form-section {
+      flex: 1 1 45%;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .form-toggle {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .form-toggle button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border: none;
+      background: #8b1a1a;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .form-toggle button.active {
+      background: #a83232;
+    }
+
+    form {
+      display: none;
+    }
+    form.active {
+      display: block;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    form button {
+      width: 100%;
+      padding: 0.7rem;
+      background: #8b1a1a;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-mom-and-baby-1578/1080p.mp4" type="video/mp4" />
+  </video>
+
+  <header class="main-header">
+    <h1>JEEVANDAAN</h1>
+    <p>THE GIFT OF LIFE</p>
+  </header>
+
+  <nav class="main-nav">
+    <a href="home.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="surrogacy.html"><strong>Surrogacy</strong></a>
+    <a href="faq.html">FAQ</a>
+    <a href="success.html">Success Stories</a>
+    <a href="hospital.html">Our Partner Hospitals</a>
+    <a href="funds.html">Donate Funds</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <section class="content-section">
+    <h2>Surrogacy: The Gift of Parenthood</h2>
+    <p>Surrogacy offers a miraculous path to parenthood for families facing challenges. At Jeevandaan, we support every step—with empathy, medical expertise, and legal guidance.</p>
+  </section>
+
+  <section class="slider-and-graphic">
+    <div class="slider">
+      <div class="slide">
+        <h3>Rekha & Her Surrogate Angel</h3>
+        <p>“After years, we found our light through Jeevandaan. Our surrogate was a blessing.”</p>
+      </div>
+      <div class="slide">
+        <h3>Meena's Journey</h3>
+        <p>“Carrying a baby gave my life deep purpose. I was treated with dignity and care.”</p>
+      </div>
+      <div class="slide">
+        <h3>The Rane Family</h3>
+        <p>“We had almost given up. Thanks to this program, we welcomed twins into our world.”</p>
+      </div>
+    </div>
+    <div class="story-graphic">
+      <img src="https://tse4.mm.bing.net/th?id=OIP.yJ7ktBJZ6FESNXzNxwHegQHaEn&pid=Api&P=0&h=180" alt="Pregnant Woman and Baby" />
+      <p class="caption">Every story begins with a bond — life nurtured through care.</p>
+    </div>
+  </section>
+
+  <!-- FAQ + Form Section -->
+  <section class="faq-form-wrapper">
+    <!-- FAQ -->
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h4>Is surrogacy legal in India?</h4>
+        <p>Yes, under strict legal guidelines and for altruistic (non-commercial) purposes only.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can the surrogate keep the baby?</h4>
+        <p>No. Legal contracts ensure parental rights are with the intended parents.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What support is provided to surrogates?</h4>
+        <p>Medical, emotional, legal, and financial coverage is provided as per the policy.</p>
+      </div>
+    </div>
+    <!-- Form -->
+    <div class="form-section">
+      <h3 style="text-align:center;">Get in Touch</h3>
+      <div class="form-toggle">
+        <button onclick="showForm('be')" id="btnBe" class="active">Be a Surrogate</button>
+        <button onclick="showForm('get')" id="btnGet">Get a Surrogate</button>
+      </div>
+
+      <form id="formBe" class="active">
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Contact Number" required>
+        <input type="number" placeholder="Your Age" required>
+        <textarea placeholder="Why do you want to be a surrogate?" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+      <form id="formGet">
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Contact Number" required>
+        <input type="text" placeholder="Medical Condition (if any)">
+        <textarea placeholder="Why do you need a surrogate?" rows="4"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+  
+  // Toggle between the forms
+  function showForm(type) {
+    const formBe = document.getElementById("formBe");
+    const formGet = document.getElementById("formGet");
+    const btnBe = document.getElementById("btnBe");
+    const btnGet = document.getElementById("btnGet");
+
+    formBe.style.display = "none";
+    formGet.style.display = "none";
+    btnBe.classList.remove("active");
+    btnGet.classList.remove("active");
+
+    if (type === "be") {
+      formBe.style.display = "block";
+      btnBe.classList.add("active");
+    } else {
+      formGet.style.display = "block";
+      btnGet.classList.add("active");
+    }
+  }
+
+  // Submit Be a Surrogate form
+  document.getElementById("formBe").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("http://localhost:3000/api/be_surrogate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.text())
+      .then((message) => {
+        alert(message);
+        this.reset();
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        alert("Failed to submit form.");
+      });
+  });
+
+  // Submit Get a Surrogate form
+  document.getElementById("formGet").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch("http://localhost:3000/api/get_surrogate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.text())
+      .then((message) => {
+        alert(message);
+        this.reset();
+      })
+      .catch((err) => {
+        console.error("Error:", err);
+        alert("Failed to submit form.");
+      });
+  });
+
+
+  </script>
+
+</body>
+</html>
+
+
+
+

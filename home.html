@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEEVANDAAN - The Gift of Life,</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <h1>JEEVAN,DAAN</h1>
+      <p>THE GIFT OF LIFE</p>
+    </div>
+
+  </header>
+
+  <nav class="main-nav">
+    <a href="home.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="surrogacy.html"><strong>Surrogacy</strong></a>
+    <a href="faq.html">FAQ</a>
+    <a href="success.html">Success Stories</a>
+    <a href="hospital.html">Our Partner Hospitals</a>
+    <a href="funds.html">Donate Funds</a>
+    <a href="about.html">About Us</a>
+  </nav>
+  <section class="slider">
+  
+    <!-- Vital Line Background -->
+    <div class="vital-background">
+      <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+        <polyline points="0,100 20,100 70,10 90,140 110,100 150,100 170,60 190,140 210,100 250,100 270,60 290,140 310,100 350,100 370,60 390,140 410,100 450,100 470,60 490,140 510,100 550,100 570,60 590,140 610,100 1200,100"
+                  stroke="#8B0000" stroke-width="3" fill="none" />
+      </svg>
+    </div>
+  
+    <!-- Slides -->
+    <div class="slide fade">
+      <img src="images/home-page2.jpj.jpg" alt="Slide 1" />
+      <div class="caption">
+        <h2>"One organ donor can save up to eight lives."</h2>
+        <a href="register.html" class="register-btn">Ready to make a difference?</a>
+      </div>
+    </div>
+  
+    <div class="slide fade">
+      <img src="images/home-page3.jpj" alt="Slide 2" />
+      <div class="caption">
+        <h2>"Give the gift of life Be an organ donor."</h2>
+        <a href="register.html" class="register-btn">Register Now</a>
+      </div>
+    </div>
+  
+    <div class="slide fade">
+      <img src="images/image 4.jpj" alt="Slide 3" />
+      <div class="caption">
+        <h2>"Your decision can give someone a second chance."</h2>
+        <a href="register.html" class="register-btn">Register Now</a>
+      </div>
+    </div>
+  </section>
+
+  </section>
+  <section class="highlight-section">
+    <div class="cards">
+      <div class="card">
+        <div class="card-img-container">
+          <img src="1.jpj" alt="Who can Donate" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3>Who can Donate?</h3>
+          <p>Almost anyone can become a donor. Organ donation is not limited by age or health status. Many people have donated organs in their 70s or even 80s, proving that age is not a limitation for becoming a donor. It’s the condition of the organs that matters most.</p>
+          <a href="faq.html" class="btn">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img-container">
+          <img src="https://tse3.mm.bing.net/th?id=OIP.6of0ii0-B-s3xevf5jHYsgHaHa&pid=Api&P=0&h=180" alt="Why Donate?" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3>Why Donate?</h3>
+          <p>Organ donation is a selfless gift that saves lives. Every year, thousands of people die waiting for a transplant due to a shortage of organ donors. Becoming a donor gives patients in need of a transplant a second chance at life.</p>
+          <a href="faq.html" class="btn">Learn More</a>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-img-container">
+          <img src="https://tse2.mm.bing.net/th?id=OIP.6-pyuO03Bn7QU76aAfMDFAHaEH&pid=Api&P=0&h=180" alt="How to Register" class="card-img">
+        </div>
+        <div class="card-body">
+          <h3>How to Register?</h3>
+          <p>Registering as an organ donor is simple. You can register online, at a hospital, or through your local health department. Start the process today and make a difference.</p>
+          <a href="register.html" class="btn">Register Now</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+ 
+
+    <footer>
+      <p>&copy; 2025 Jeevandaan – Spreading hope through organ donation.</p>
+    </footer>
+    
+
+
+ 
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    const slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 4000); // Change image every 4 seconds
+  }
+</script>
+
+</body>
+</html>
+

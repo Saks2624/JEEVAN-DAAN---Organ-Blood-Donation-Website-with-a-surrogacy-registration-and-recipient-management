@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Jeevandaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff8ec;
+      color: #222;
+      line-height: 1.4;
+    }
+
+    .main-header {
+      background: linear-gradient(to right, #c28294, #8b1a1a);
+      color: white;
+      padding: 0.5rem 0;
+      text-align: center;
+      border-bottom: 4px solid #ffb3b3;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .main-header .logo h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .main-header .logo p {
+      font-size: 1.5rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .main-nav {
+      background-color: #8b1a1a;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    .main-nav a {
+      color: rgb(222, 222, 177);
+      text-decoration: none;
+      margin: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .main-nav a:hover {
+      color: #ffd700;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+      color: #4b3f2f;
+    }
+
+    .selection-buttons {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .selection-buttons button {
+      padding: 1rem 2rem;
+      margin: 0 1rem;
+      background-color: #a51906;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .selection-buttons button:hover {
+      transform: scale(1.05);
+      background-color: #8a6c4b;
+    }
+
+    form {
+      display: none;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 700px;
+      margin: 1rem auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      backdrop-filter: blur(8px);
+    }
+
+    form h3 {
+      color: #4b3f2f;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: #4b3f2f;
+      display: block;
+      margin-top: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      background-color: #fffdf7;
+      font-size: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .submit-btn {
+      margin-top: 1.8rem;
+      background-color: #a67c52;
+      color: white;
+      padding: 1rem;
+      border: none;
+      width: 100%;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #8a6c4b;
+    }
+  </style>
+</head>
+<body>
+
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JEEVANDAAN - The Gift of Life,</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <h1>JEEVAN,DAAN</h1>
+      <p>THE GIFT OF LIFE</p>
+    </div>
+
+  </header>
+  <nav class="main-nav">
+    <a href="home.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="surrogacy.html"><strong>Surrogacy</strong></a>
+    <a href="faq.html">FAQ</a>
+    <a href="success.html">Success Stories</a>
+    <a href="hospital.html">Our Partner Hospitals</a>
+    <a href="funds.html">Donate Funds</a>
+    <a href="about.html">About Us</a>
+  </nav>
+
+  <h2>Become a Lifesaver Today</h2>
+
+  <div class="selection-buttons">
+    <button onclick="showForm('donor')">I'm a Donor</button>
+    <button onclick="showForm('receiver')">I'm a Receiver</button>
+  </div>
+
+  <!-- Donor Form -->
+  <form id="donor-form">
+    <h3>Donor Registration Form</h3>
+    <label for="donor-name">Full Name:</label>
+    <input type="text" id="donor-name" required />
+
+    <label for="donor-age">Age:</label>
+    <input type="number" id="donor-age" required />
+
+    <label for="donor-blood">Blood Group:</label>
+    <select id="donor-blood" required>
+      <option value="">Select Blood Group</option>
+      <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+      <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+    </select>
+
+    <label for="donor-organ">Organ to Donate:</label>
+    <select id="donor-organ" required>
+      <option value="">Select Organ</option>
+      <option>Kidney</option><option>Liver</option><option>Heart</option>
+      <option>Lungs</option><option>Pancreas</option><option>Cornea</option>
+    </select>
+
+    <label for="donor-phone">Phone Number:</label>
+    <input type="tel" id="donor-phone" required />
+
+    <label for="donor-email">Email:</label>
+    <input type="email" id="donor-email" required />
+
+    <button type="submit" class="submit-btn">Submit as Donor</button>
+  </form>
+
+  <!-- Receiver Form -->
+  <form id="receiver-form">
+    <h3>Receiver Registration Form</h3>
+    <label for="receiver-name">Full Name:</label>
+    <input type="text" id="receiver-name" required />
+
+    <label for="receiver-age">Age:</label>
+    <input type="number" id="receiver-age" required />
+
+    <label for="receiver-blood">Blood Group:</label>
+    <select id="receiver-blood" required>
+      <option value="">Select Blood Group</option>
+      <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+      <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+    </select>
+
+    <label for="receiver-organ">Organ Needed:</label>
+    <select id="receiver-organ" required>
+      <option value="">Select Organ</option>
+      <option>Liver</option><option>Kidney</option><option>Heart</option>
+      <option>Lungs</option><option>Pancreas</option><option>Cornea</option>
+    </select>
+
+    <label for="receiver-phone">Phone Number:</label>
+    <input type="tel" id="receiver-phone" required />
+
+    <label for="receiver-email">Email:</label>
+    <input type="email" id="receiver-email" required />
+
+    <button type="submit" class="submit-btn">Submit as Receiver</button>
+  </form>
+
+  <!-- JavaScript -->
+  <script>
+    function showForm(type) {
+      const donorForm = document.getElementById('donor-form');
+      const receiverForm = document.getElementById('receiver-form');
+      if (type === 'donor') {
+        donorForm.style.display = 'block';
+        receiverForm.style.display = 'none';
+      } else {
+        donorForm.style.display = 'none';
+        receiverForm.style.display = 'block';
+      }
+    }
+
+    document.getElementById('donor-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById('donor-name').value,
+        age: document.getElementById('donor-age').value,
+        bloodGroup: document.getElementById('donor-blood').value,
+        organ: document.getElementById('donor-organ').value,
+        phone: document.getElementById('donor-phone').value,
+        email: document.getElementById('donor-email').value,
+      };
+      // Receiver form submission
+  document.getElementById('receiver-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById('receiver-name').value,
+      age: document.getElementById('receiver-age').value,
+      bloodGroup: document.getElementById('receiver-blood').value,
+      organ: document.getElementById('receiver-organ').value,
+      phone: document.getElementById('receiver-phone').value,
+      email: document.getElementById('receiver-email').value,
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/receiver', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.text();
+      alert(result);
+      this.reset();
+    } catch (error) {
+      alert('Submission failed: ' + error.message);
+    }
+  });
+
+      try {
+        const response = await fetch('http://localhost:3000/api/donor', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        const result = await response.text();
+        alert(result);
+        this.reset();
+      } catch (error) {
+        alert('Submission failed: ' + error.message);
+      }
+    });
+  </script>
+  
+</body>
+</html>
+
+
+
+
+
+
+

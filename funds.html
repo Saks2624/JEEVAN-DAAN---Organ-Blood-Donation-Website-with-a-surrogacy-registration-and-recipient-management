@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate Funds - Jeevandaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+ .main-header {
+  background: linear-gradient(to right, #c28294, #8b1a1a);
+  color: white;
+  padding: 0rem 0;
+  text-align: center;
+  border-bottom: 4px solid #ffb3b3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.main-header .logo h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  animation: fadeInDown 1s ease-out;
+}
+
+.main-header .logo p {
+  margin-top: -2rem;
+  letter-spacing: 0.8px;
+  opacity: 0.9;
+  font-family: 'Times New Roman', serif;
+  animation: fadeInUp 1s ease-out;
+}
+
+.main-nav {
+  background-color: #852222;
+  padding: 0.8rem 1rem;
+  text-align: center;
+}
+
+.main-nav a {
+  color: rgb(222, 222, 177);
+  text-decoration: none;
+  margin: 1.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: #ffd700;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: #ecc3c3;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: #eeecec;
+      text-align: center;
+    }
+    p.intro {
+      text-align: center;
+      color: #555;
+      font-size: 1.1rem;
+    }
+    form {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    input, select, textarea {
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #5cb85c;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4cae4c;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="logo">
+      <h1>JEEVAN,DAAN</h1>
+      <p>THE GIFT OF LIFE</p>
+    </div>
+  </header>
+   <nav class="main-nav">
+    <a href="home.html">Home</a>
+    <a href="register.html">Register</a>
+    <a href="surrogacy.html"><strong>Surrogacy</strong></a>
+    <a href="faq.html">FAQ</a>
+    <a href="success.html">Success Stories</a>
+    <a href="hospital.html">Our Partner Hospitals</a>
+    <a href="funds.html">Donate Funds</a>
+    <a href="about.html">About Us</a>
+    </nav>
+
+  <div class="container">
+    <h1>Support Our Mission</h1>
+    <p class="intro">
+      Your generous contribution will directly support our efforts in raising awareness,
+      assisting transplant patients, and ultimately saving lives through organ donation.
+    </p>
+
+    <h2>Make a Donation</h2>
+    <form id="funds-form">
+      <label for="donor-name">Full Name</label>
+      <input type="text" id="donor-name" name="name" required />
+
+      <label for="donor-email">Email Address</label>
+      <input type="email" id="donor-email" name="email" required />
+
+      <label for="donation-amount">Donation Amount (INR)</label>
+      <input type="number" id="donation-amount" name="amount" min="1" required />
+
+      <label for="payment_method">Payment Method</label>
+      <select id="payment_method" name="payment_method" required>
+        <option value="">Select Payment Method</option>
+        <option value="credit_card">Credit Card</option>
+        <option value="paypal">PayPal</option>
+        <option value="bank_transfer">Bank Transfer</option>
+      </select>
+
+      <label for="message">Optional Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Leave a message of support..."></textarea>
+
+      <button type="submit">Donate Now</button>
+    </form>
+  </div>
+
+  <script>document.getElementById('funds-form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+
+  const data = {
+    name: document.getElementById('donor-name').value,
+    email: document.getElementById('donor-email').value,
+    amount: document.getElementById('donation-amount').value,
+    payment_method: document.getElementById('payment_method').value,
+    message: document.getElementById('message').value
+  };
+
+  try {
+    const response = await fetch('http://localhost:3000/api/funds', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+    alert(result.message);
+    this.reset();
+  } catch (error) {
+    alert("Failed to process donation. Please try again later.");
+  }
+});
+  </script>
+</body>
+</html>
+
+
+
+
